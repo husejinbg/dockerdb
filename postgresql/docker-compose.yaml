@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres_container
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: userpassword
+      POSTGRES_DB: mydatabase
+
+    ports:
+      - "5433:5432" # Expose PostgreSQL on port 5433, change 5433 to your desired port default is 5432
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

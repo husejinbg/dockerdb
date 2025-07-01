@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_container
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: userpassword
+      MYSQL_DATABASE: mydatabase
+
+    ports:
+      - "3307:3306" # Exposing MySQL on port 3307, change 3307 to your desired port default is 3306
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
