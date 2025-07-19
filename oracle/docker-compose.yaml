@@ -1,0 +1,26 @@
+# jdbc:oracle:thin:@//localhost:1521/FREEPDB1
+# username: myuser
+# password: userpassword
+
+services:
+  oracle:
+    image: container-registry.oracle.com/database/free:latest
+    container_name: oracle_container
+    restart: unless-stopped
+
+    environment:
+      ORACLE_PWD: adminpassword # password for SYS, SYSTEM, PDBADMIN
+      ORACLE_CHARACTERSET: AL32UTF8
+      ORACLE_SID: FREE # don't change this
+      ORACLE_PDB: FREEPDB1 # don't change this
+
+    ports:
+      - "1521:1521" # Expose Oracle on port 1521, change 1521 to your desired port default is 1521
+      - "5500:5500" # Expose Oracle Enterprise Manager on port 5500, change 5500 to your desired port default is 5500
+
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./init:/opt/oracle/scripts/startup
+
+volumes:
+  oracle_data:
