@@ -30,6 +30,7 @@ A collection of ready-to-use Docker Compose configurations for popular databases
   - Host: `localhost`
   - Port: `3307`
   - Database: `mydatabase`
+  - JDBC URL: `jdbc:mysql://localhost:3307/mydatabase`
   - Username: `myuser`
   - Password: `userpassword`
   - Root Password: `rootpassword`
@@ -41,6 +42,7 @@ A collection of ready-to-use Docker Compose configurations for popular databases
   - Host: `localhost`
   - Port: `5433`
   - Database: `mydatabase`
+  - JDBC URL: `jdbc:postgresql://localhost:5433/mydatabase`
   - Username: `myuser`
   - Password: `userpassword`
 
